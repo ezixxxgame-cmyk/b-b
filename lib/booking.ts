@@ -6,6 +6,7 @@ export type BookingInput = {
   time: string;
   comment?: string;
   website?: string;
+  consent?: boolean;
 };
 
 export function normalizePhone(value: string): string {
@@ -25,5 +26,6 @@ export function validateBooking(input: BookingInput): string[] {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(input.date)) errors.push('date');
   if (!/^\d{2}:\d{2}$/.test(input.time)) errors.push('time');
   if ((input.comment ?? '').length > 1000) errors.push('comment');
+  if (!input.consent) errors.push('consent');
   return errors;
 }
