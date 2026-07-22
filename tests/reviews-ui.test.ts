@@ -41,5 +41,13 @@ describe('mobile overflow guards', () => {
     expect(css).toContain('.service-price { max-width: 100%; text-align: left; }');
     expect(css).toContain('.field { display: grid; gap: 6px; min-width: 0; }');
     expect(css).toContain(".field input[type='date'], .field input[type='time'] { min-width: 0; max-width: 100%; }");
+    expect(css).toContain('.form, .form-grid, .contact-grid > * { min-width: 0; max-width: 100%; }');
+    expect(css).toContain('.contact-grid { grid-template-columns: minmax(0, 1fr); }');
+  });
+});
+
+describe('legal document readability', () => {
+  it('uses dark text on the light document surface', () => {
+    expect(file('app/doc.css')).toContain('.doc{color:var(--ink);');
   });
 });
