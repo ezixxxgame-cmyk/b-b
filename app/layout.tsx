@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   description: 'Барбер и Барби в Салавате: стрижки, окрашивание, укладка и маникюр. Запись по телефону или через форму.',
   metadataBase: new URL('https://barber-i-barbi.vercel.app'),
   openGraph: { title: 'Барбер и Барби — Салават', description: 'Стрижки, окрашивание и маникюр в Салавате.', type: 'website', locale: 'ru_RU' },
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ]
+  },
   robots: { index: true, follow: true }
 };
 
