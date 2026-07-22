@@ -32,3 +32,14 @@ describe('favicon assets', () => {
     expect(layout).toContain("'/favicon.svg'");
   });
 });
+
+describe('mobile overflow guards', () => {
+  it('stacks service prices and constrains native date and time controls', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('.service-item { flex-direction: column; align-items: flex-start; gap: 8px; }');
+    expect(css).toContain('.service-price { max-width: 100%; text-align: left; }');
+    expect(css).toContain('.field { display: grid; gap: 6px; min-width: 0; }');
+    expect(css).toContain(".field input[type='date'], .field input[type='time'] { min-width: 0; max-width: 100%; }");
+  });
+});
