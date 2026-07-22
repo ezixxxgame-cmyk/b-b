@@ -82,9 +82,10 @@ button { cursor: pointer; }
 .schedule { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; color: var(--muted); font-size: 14px; }
 .form { display: grid; gap: 14px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.field { display: grid; gap: 6px; }
+.field { display: grid; gap: 6px; min-width: 0; }
 .field label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 .field input, .field select, .field textarea { width: 100%; border: 1px solid #8c7a62; background: #1a1814; color: var(--paper); padding: 13px 14px; border-radius: 0; }
+.field input[type='date'], .field input[type='time'] { min-width: 0; max-width: 100%; }
 .field textarea { min-height: 100px; resize: vertical; }
 .consent { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 12px; line-height: 1.45; }
 .consent input { margin-top: 3px; accent-color: var(--orange); }
@@ -105,6 +106,8 @@ button { cursor: pointer; }
   .gallery, .contact-grid, .services, .reviews { grid-template-columns: 1fr; }
   .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-grid { grid-template-columns: 1fr; }
+  .service-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .service-price { max-width: 100%; text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
