@@ -12,7 +12,15 @@ describe('reviews disclosure and mobile CTA', () => {
     expect(page).toContain('Иван Яровицын');
     expect(page).toContain('денис щербаков');
     expect(page).toContain('Данил Махмутов');
+    expect(page).toContain('валерий иванов');
+    expect(page).toContain('Елена М.');
+    expect(page).toContain('Айрат');
+    expect(page).toContain('Азат Лукманов');
+    expect(page).toContain('Сергей Берк');
+    expect(page).toContain('Ульяна');
     expect(page).toContain('reviews.slice(0, showAllReviews ? reviews.length : 3)');
+    expect(page).toContain('Подтвердите согласие на обработку персональных данных.');
+    expect(page).not.toContain('disabled={!consent}');
   });
 
   it('does not include a sticky booking CTA', () => {
