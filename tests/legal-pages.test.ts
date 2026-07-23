@@ -22,3 +22,15 @@ describe('legal pages indexing', () => {
   });
 });
 
+describe('operator details', () => {
+  it.each(['app/privacy/page.tsx', 'app/consent/page.tsx'])('%s contains completed operator details', (path) => {
+    const page = projectFile(path);
+
+    expect(page).toContain('Кузнецова Альбина Владимировна');
+    expect(page).toContain('026602848747');
+    expect(page).toContain('Kav28leta1984@mail.ru');
+    expect(page).not.toContain('[ФИО самозанятого');
+    expect(page).not.toContain('[телефон и e-mail оператора');
+  });
+});
+
