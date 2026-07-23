@@ -25,3 +25,14 @@ describe('booking interaction safeguards', () => {
   });
 });
 
+describe('public schedule and service copy', () => {
+  it('shows Tuesday and Thursday as days off without editorial wording', () => {
+    const site = readFileSync(resolve(process.cwd(), 'lib/site.ts'), 'utf8');
+
+    expect(page).not.toContain('которые вы передали для публикации');
+    expect(page).toContain('Пн, Ср');
+    expect(page).toContain('Вт, Чт');
+    expect(site).not.toContain("['Monday', 'Tuesday', 'Wednesday']");
+  });
+});
+
