@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import '../doc.css';
 
-export const metadata = { title: 'Политика конфиденциальности — Барбер и Барби' };
+export const metadata = {
+  title: 'Политика конфиденциальности — Барбер и Барби',
+  robots: { index: false, follow: true }
+};
 
 export default function PrivacyPage() {
   return <main className="page"><div className="shell"><article className="doc">
@@ -23,3 +26,4 @@ export default function PrivacyPage() {
     <p>Документ является рабочим шаблоном и не подтверждает полное юридическое соответствие без проверки юристом после внесения реквизитов.</p>
   </article></div></main>;
 }
+
