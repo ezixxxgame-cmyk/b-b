@@ -18,7 +18,7 @@ export const business = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday'],
+      dayOfWeek: ['Monday', 'Wednesday'],
       opens: '14:00',
       closes: '20:00'
     },
