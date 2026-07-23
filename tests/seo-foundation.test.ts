@@ -4,6 +4,10 @@ import { describe, expect, it } from 'vitest';
 import { absoluteUrl, business, siteUrl } from '../lib/site';
 
 describe('SEO site foundation', () => {
+  it('uses the public www domain as the fallback canonical URL', () => {
+    expect(siteUrl).toBe('https://www.barberandbarbie.ru');
+  });
+
   it('uses one canonical site URL and verified local facts', () => {
     expect(siteUrl).toMatch(/^https:\/\//);
     expect(absoluteUrl('/privacy')).toBe(`${siteUrl}/privacy`);
