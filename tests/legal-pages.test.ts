@@ -12,3 +12,13 @@ describe('legal pages navigation', () => {
     expect(page).not.toContain('<a href="/">');
   });
 });
+
+describe('legal pages indexing', () => {
+  it.each(['app/privacy/page.tsx', 'app/consent/page.tsx'])('%s stays available but out of search results', (path) => {
+    const page = projectFile(path);
+
+    expect(page).toContain('index: false');
+    expect(page).toContain('follow: true');
+  });
+});
+

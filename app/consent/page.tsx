@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import '../doc.css';
 
-export const metadata = { title: 'Согласие на обработку персональных данных — Барбер и Барби' };
+export const metadata = {
+  title: 'Согласие на обработку персональных данных — Барбер и Барби',
+  robots: { index: false, follow: true }
+};
 
 export default function ConsentPage() {
   return <main className="page"><div className="shell"><article className="doc">
@@ -14,3 +17,4 @@ export default function ConsentPage() {
     <p>Отправляя форму с установленным флажком, я подтверждаю ознакомление с <Link href="/privacy">Политикой конфиденциальности</Link>.</p>
   </article></div></main>;
 }
+
