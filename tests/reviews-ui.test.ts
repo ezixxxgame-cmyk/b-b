@@ -42,6 +42,14 @@ describe('favicon assets', () => {
 });
 
 describe('mobile overflow guards', () => {
+  it('keeps hero sizing within mobile viewport width', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('html, body { overflow-x: clip; }');
+    expect(css).toContain('padding: 20px max(24px, calc((100% - 1180px) / 2)) 54px;');
+    expect(css).not.toContain('calc((100vw - 1180px) / 2)');
+  });
+
   it('stacks service prices and constrains native date and time controls', () => {
     const css = file('app/globals.css');
 
