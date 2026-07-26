@@ -42,6 +42,15 @@ describe('favicon assets', () => {
 });
 
 describe('mobile overflow guards', () => {
+  it('prevents hero grid content from expanding beyond the viewport', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('.hero > * { min-width: 0; }');
+    expect(css).toContain('.hero h1 { width: 100%; max-width: 1100px;');
+    expect(css).toContain('overflow-wrap: anywhere;');
+    expect(css).toContain('.hero-art { width: min(390px, 72vw); max-width: 100%;');
+  });
+
   it('uses touch-safe hero sizing when an embedded browser reports a desktop viewport', () => {
     const css = file('app/globals.css');
 
