@@ -42,6 +42,15 @@ describe('favicon assets', () => {
 });
 
 describe('mobile overflow guards', () => {
+  it('wraps hero text only between words', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('overflow-wrap: normal;');
+    expect(css).toContain('word-break: normal;');
+    expect(css).toContain('hyphens: none;');
+    expect(css).not.toContain('overflow-wrap: anywhere;');
+  });
+
   it('prevents hero grid content from expanding beyond the viewport', () => {
     const css = file('app/globals.css');
 
