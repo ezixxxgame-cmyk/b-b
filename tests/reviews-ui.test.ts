@@ -42,6 +42,14 @@ describe('favicon assets', () => {
 });
 
 describe('mobile overflow guards', () => {
+  it('uses touch-safe hero sizing when an embedded browser reports a desktop viewport', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('@media (max-width: 800px), (hover: none) and (pointer: coarse)');
+    expect(css).toContain('.hero-art { width: min(340px, calc(100% - 36px)); }');
+    expect(css).toContain('.hero h1 { font-size: 42px; }');
+  });
+
   it('keeps hero sizing within mobile viewport width', () => {
     const css = file('app/globals.css');
 
