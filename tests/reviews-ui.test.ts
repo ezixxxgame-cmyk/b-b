@@ -42,6 +42,13 @@ describe('favicon assets', () => {
 });
 
 describe('mobile overflow guards', () => {
+  it('constrains mobile hero grid track and headline size', () => {
+    const css = file('app/globals.css');
+
+    expect(css).toContain('grid-template-columns: minmax(0, 1fr);');
+    expect(css).toContain('.hero h1 { font-size: clamp(34px, 7vw, 38px); }');
+  });
+
   it('wraps hero text only between words', () => {
     const css = file('app/globals.css');
 
@@ -65,7 +72,7 @@ describe('mobile overflow guards', () => {
 
     expect(css).toContain('@media (max-width: 800px), (hover: none) and (pointer: coarse)');
     expect(css).toContain('.hero-art { width: min(340px, calc(100% - 36px)); }');
-    expect(css).toContain('.hero h1 { font-size: 42px; }');
+    expect(css).toContain('.hero h1 { font-size: clamp(34px, 7vw, 38px); }');
   });
 
   it('keeps hero sizing within mobile viewport width', () => {
