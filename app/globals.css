@@ -101,10 +101,11 @@ button { cursor: pointer; }
 .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .footer a { color: var(--paper); }
 
-@media (max-width: 800px) {
+@media (max-width: 800px), (hover: none) and (pointer: coarse) {
   .nav-links { display: none; }
   .hero { padding-inline: 18px; }
-  .hero-art { width: min(340px, 76vw); }
+  .hero-art { width: min(340px, calc(100% - 36px)); }
+  .hero h1 { font-size: 42px; }
   .section { padding: 58px 0; }
   .section-head { display: block; }
   .section-head .section-intro { margin-top: 14px; }
