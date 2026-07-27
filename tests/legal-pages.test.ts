@@ -1,3 +1,6 @@
+Exit code: 0
+Wall time: 0.5 seconds
+Output:
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -31,6 +34,15 @@ describe('operator details', () => {
     expect(page).toContain('Kav28leta1984@mail.ru');
     expect(page).not.toContain('[ФИО самозанятого');
     expect(page).not.toContain('[телефон и e-mail оператора');
+  });
+});
+
+describe('privacy publication copy', () => {
+  it('does not expose internal legal review notes', () => {
+    const page = projectFile('app/privacy/page.tsx');
+
+    expect(page).not.toContain('проверить с юристом');
+    expect(page).not.toContain('Документ нужно проверить');
   });
 });
 
