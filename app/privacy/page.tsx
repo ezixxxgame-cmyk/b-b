@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.5 seconds
-Output:
 import Link from 'next/link';
 import '../doc.css';
 
