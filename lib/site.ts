@@ -18,15 +18,15 @@ export const business = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Wednesday'],
+      dayOfWeek: ['Monday', 'Wednesday', 'Friday', 'Saturday'],
       opens: '14:00',
       closes: '20:00'
     },
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
+      dayOfWeek: ['Sunday'],
       opens: '14:00',
-      closes: '20:00'
+      closes: '18:00'
     }
   ]
 } as const;

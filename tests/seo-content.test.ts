@@ -35,13 +35,18 @@ describe('booking interaction safeguards', () => {
 });
 
 describe('public schedule and service copy', () => {
-  it('shows Tuesday and Thursday as days off without editorial wording', () => {
+  it('shows the requested weekly schedule without editorial wording', () => {
     const site = readFileSync(resolve(process.cwd(), 'lib/site.ts'), 'utf8');
 
     expect(page).not.toContain('которые вы передали для публикации');
-    expect(page).toContain('Пн, Ср');
-    expect(page).toContain('Вт, Чт');
-    expect(site).not.toContain("['Monday', 'Tuesday', 'Wednesday']");
+    expect(page).toContain('<span>Пн, Ср, Пт, Сб</span><span>14:00–20:00</span>');
+    expect(page).toContain('<span>Вт, Чт</span><span>выходной</span>');
+    expect(page).toContain('<span>Вс</span><span>14:00–18:00</span>');
+    expect(site).toContain("dayOfWeek: ['Monday', 'Wednesday', 'Friday', 'Saturday']");
+    expect(site).toContain("dayOfWeek: ['Sunday']");
+    expect(site).toContain("closes: '18:00'");
+    expect(site).not.toContain("'Tuesday'");
+    expect(site).not.toContain("'Thursday'");
   });
 });
 
