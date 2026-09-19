@@ -6,6 +6,16 @@ import { business } from '@/lib/site';
 import { localBusinessSchema } from '@/lib/structured-data';
 
 const yandexUrl = business.yandexUrl;
+const works = [
+  { src: '/images/work-1.webp', alt: 'Мужская стрижка с плавным переходом — вид сзади', width: 960, height: 1280 },
+  { src: '/images/work-4.webp', alt: 'Короткая мужская стрижка и оформление бороды — вид сбоку', width: 960, height: 1280 },
+  { src: '/images/work-2.webp', alt: 'Детская стрижка с текстурным верхом — вид сбоку', width: 960, height: 1280 },
+  { src: '/images/work-7.webp', alt: 'Детская стрижка с короткой чёлкой и плавным переходом', width: 960, height: 1280 },
+  { src: '/images/work-3.webp', alt: 'Стрижка с осветлёнными прядями — вид сбоку', width: 1280, height: 960 },
+  { src: '/images/work-6.webp', alt: 'Стрижка с осветлёнными прядями — вид сзади', width: 1280, height: 960 },
+  { src: '/images/work-5.webp', alt: 'Мужская стрижка на кудрявых волосах — вид сзади', width: 1280, height: 960 },
+  { src: '/images/work-8.webp', alt: 'Мужская стрижка на кудрявых волосах — вид спереди', width: 1280, height: 960 }
+];
 const services = [
   { title: 'Стрижки и уход за волосами', items: [
     ['Мужская стрижка: кроп, цезарь', 'Классические и современные варианты ножницами и машинкой, с обязательным мытьём головы.', '1 300 ₽'],
@@ -78,7 +88,7 @@ export default function Home() {
 
     <section className="section section-dark" id="why"><div className="shell"><div className="section-head"><h2>По делу и с уважением</h2></div><div className="grid benefits"><div className="benefit"><strong>Для мужчин и женщин</strong><p>Барбершоп и парикмахерские услуги в одном месте.</p></div><div className="benefit"><strong>По предварительной записи</strong><p>Вы выбираете пожелания, а мастер подтверждает удобное время.</p></div><div className="benefit"><strong>Удобно добраться</strong><p>Салават, бульвар Космонавтов, 13. Есть парковка.</p></div><div className="benefit"><strong>Можно с питомцем</strong><p>В карточке отмечено, что разрешено со всеми животными.</p></div></div></div></section>
 
-    <section className="section" id="works"><div className="shell"><div className="section-head"><h2>Работы</h2></div><div className="grid gallery"><figure className="photo-card work-card"><Image className="work-image" src="/images/nails.webp" alt="Примеры маникюра в салоне" width={1240} height={1240} sizes="(max-width: 800px) 100vw, 58vw" /></figure><figure className="photo-card work-card haircut-card"><Image className="work-image" src="/images/haircut.webp" alt="Пример мужской стрижки и оформления бороды" width={1280} height={960} sizes="(max-width: 800px) 100vw, 42vw" /></figure></div></div></section>
+    <section className="section" id="works"><div className="shell"><div className="section-head"><h2>Работы</h2></div><div className="grid gallery">{works.map(work => <figure className="photo-card work-card" key={work.src}><Image className="work-image" {...work} alt={work.alt} sizes="(max-width: 800px) 50vw, (hover: none) and (pointer: coarse) 50vw, 25vw" /></figure>)}</div></div></section>
 
     <section className="section section-dark" id="reviews"><div className="shell"><div className="section-head"><h2>Отзывы</h2></div><div className="grid reviews">{reviews.slice(0, showAllReviews ? reviews.length : 3).map(review => <article className="review" key={review.name}><div className="stars" aria-label={`${review.rating} из 5`}>★★★★★</div><blockquote>«{review.quote}»</blockquote><footer><span>{review.name} · {review.date}</span><a href={yandexUrl} target="_blank" rel="noreferrer">Источник</a></footer></article>)}</div><div className="reviews-actions">{!showAllReviews && <button className="btn btn-secondary reviews-expand" type="button" onClick={() => setShowAllReviews(true)} aria-expanded={showAllReviews}>Развернуть еще</button>}<a className="reviews-link" href={yandexUrl} target="_blank" rel="noreferrer">Все отзывы на Яндекс.Картах</a></div></div></section>
 
@@ -87,4 +97,3 @@ export default function Home() {
     <footer className="footer"><div className="shell footer-row"><span>© Барбер и Барби, Салават</span><span><a href="/privacy">Политика конфиденциальности</a> · <a href="/consent">Согласие на обработку ПД</a></span><span>Оператор: Кузнецова Альбина Владимировна · ИНН 026602848747 · <a href="mailto:Kav28leta1984@mail.ru">Kav28leta1984@mail.ru</a></span></div></footer>
   </main>;
 }
-
